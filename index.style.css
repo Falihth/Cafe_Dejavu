@@ -1,0 +1,146 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+body {
+    cursor: url(asset/Latte.cur), auto;
+}
+
+nav {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    list-style: none;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+    padding: 1rem;
+}
+
+a {
+    position: relative;
+    color: #efefee;
+    cursor: url(asset/Latte.cur), auto;
+    font-size: 28px;
+    padding: 0.5rem 1rem;
+    transition: color 0.25s;
+    text-decoration: none;
+}
+
+a::after {
+    position: absolute;
+    content: "";
+    inset: 0;
+    background: white;
+    scale: 1 0;
+    z-index: -1;
+    transition: 0.45s;
+    border-radius: 10px;
+}
+
+a:hover {
+    color: black;
+}
+
+a:hover::after {
+    scale: 1 1;
+}
+
+.slider-contain {
+    isolation: isolate;
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    position: relative; 
+}
+
+.slider-contain .slider-item {
+    width: 98.3vw;
+    height: 40vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    transition: opacity 2s ease; 
+    opacity: 0; 
+    z-index: 0; 
+}
+
+.slider-contain .slider-item[data-show="show"] {
+    z-index: 1;
+    opacity: 1;
+}
+
+.slider-contain .slider-item::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: linear-gradient(to top, black, rgba(0, 0, 0, 0.596) ,transparent);
+}
+
+.slider-contain .slider-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slider-item .slider-content {
+    position: absolute;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1; 
+}
+
+.slider-content .slider-title {
+    font-size: 6rem;
+}
+
+.slider-content .slider-des {
+    width: 50ch;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+
+.slider-content .slider-action {
+    color: white;
+    border: 1px solid white;
+    padding: 0.5rem 1.5rem;
+    font-size: 1.1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    width: fit-content;
+    position: relative;
+    isolation: isolate;
+    transition: all 0.5s ease;
+    cursor: url(asset/Latte.cur), auto;
+}
+
+.slider-content .slider-action::before {
+    content: '';
+    background-color: white;
+    inset: 0;
+    position: absolute;
+    z-index: -1;
+    width: 0;
+    transition: all 0.5s ease;
+}
+
+.slider-content .slider-action:hover {
+    color: black;
+}
+
+.slider-content .slider-action:hover::before {
+    width: 100%;
+}
