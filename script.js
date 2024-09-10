@@ -26,5 +26,5 @@ if(sliderActive === index){
         sliderActive++;
        }
 
-    }, 5000)
+    }, 10000)
 }
